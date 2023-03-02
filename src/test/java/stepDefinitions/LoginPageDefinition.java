@@ -7,8 +7,8 @@ import util.PageBase;
 public class LoginPageDefinition extends PageBase{
 
     @Given("User is on HRM page {string}")
-    public void loginTest(String url){
-        PageBase.initialization(url);
+    public void loginTest(){
+        PageBase.initialization();
     }
 
     @When("User provides username and password as {string}")

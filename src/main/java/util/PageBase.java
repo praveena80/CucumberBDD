@@ -25,13 +25,13 @@ public class PageBase {
         }
     }
 
-    public static void initialization(String appUrl) {
+    public static void initialization() {
         String browser = prop.getProperty("browser");
         if(browser.equals("chrome")){
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver();
             driver.manage().window().maximize();
-            driver.get(prop.getProperty("url1"));
+            driver.get(prop.getProperty("petUrl"));
         }
 //        WebDriverManager.chromedriver().setup();
 
