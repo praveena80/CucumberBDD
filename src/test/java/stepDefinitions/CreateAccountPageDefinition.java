@@ -13,13 +13,13 @@ import util.PageBase;
 import javax.xml.catalog.Catalog;
 
 public class CreateAccountPageDefinition extends PageBase {
-    CatalogPage catPO = new CatalogPage();
-    NewAccountFormPage newAccPO = new NewAccountFormPage();
-    SignInPage signInPO = new SignInPage();
+    CatalogPage catPO = new CatalogPage(driver);
+    NewAccountFormPage newAccPO = new NewAccountFormPage(driver);
+    SignInPage signInPO = new SignInPage(driver);
 
-    @Given("User on home page")
-    public void createAccountTest(){
-        PageBase.initialization();
+    @Given("User on home page URL\"([^\"]*)\"$")
+    public void createAccountTest(String url){
+        driver.get(url);
     }
 
     @When("user selects sign up")

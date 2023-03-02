@@ -1,13 +1,15 @@
 package actions;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import util.PageBase;
 
 public class NewAccountFormPage extends PageBase {
-
-    public NewAccountFormPage() {
+    private WebDriver driver;
+    public NewAccountFormPage(WebDriver driver) {
+        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 

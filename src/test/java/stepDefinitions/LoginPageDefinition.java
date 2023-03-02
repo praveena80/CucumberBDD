@@ -8,7 +8,7 @@ public class LoginPageDefinition extends PageBase{
 
     @Given("User is on HRM page {string}")
     public void loginTest(){
-        PageBase.initialization();
+//        PageBase.initialization();
     }
 
     @When("User provides username and password as {string}")

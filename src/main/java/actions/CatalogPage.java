@@ -1,13 +1,16 @@
 package actions;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import util.PageBase;
 
-public class CatalogPage extends PageBase {
+public class CatalogPage {
+    private WebDriver driver;
 
-    public CatalogPage(){
+    public CatalogPage(WebDriver driver){
+        this.driver = driver;
         PageFactory.initElements(driver,this);
     }
 

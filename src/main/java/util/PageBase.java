@@ -25,7 +25,7 @@ public class PageBase {
         }
     }
 
-    public static void initialization() {
+    public WebDriver initialization() {
         String browser = prop.getProperty("browser");
         if(browser.equals("chrome")){
             WebDriverManager.chromedriver().setup();
@@ -35,7 +35,8 @@ public class PageBase {
         }
 //        WebDriverManager.chromedriver().setup();
 
-//        return driver;
+        return driver;
     }
+
 
 }
