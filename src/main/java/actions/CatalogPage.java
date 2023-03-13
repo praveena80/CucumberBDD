@@ -14,8 +14,10 @@ public class CatalogPage {
         PageFactory.initElements(driver,this);
     }
 
-    @FindBy(xpath = "//*[@id=\"MenuContent\"]/a[contains(text(),'Sign Up')]")
+//    @FindBy(xpath = "//*[@id=\"MenuContent\"]/a[contains(text(),'Sign Up')]")
+    @FindBy(linkText = "Sign Up")
     WebElement signUp;
+
 
 
     public void clickSignUp(){
