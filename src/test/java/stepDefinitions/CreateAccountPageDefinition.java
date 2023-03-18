@@ -38,19 +38,13 @@ public class CreateAccountPageDefinition extends PageBase {
 //        Assert.assertEquals(signInPO.getConfirmationMsg(), message);
 //    }
 
-    @Given("^User on home page$")
-    public void user_on_home_page() throws Throwable {
-        initialization();
-        throw new PendingException();
-    }
-
-    @When("^user selects sign up$")
+    @Given("user selects sign up")
     public void user_selects_sign_up() throws Throwable {
         catPO.clickSignUp();
         throw new PendingException();
     }
 
-    @Then("^user provides all the required information and clicks on Save button \"([^\"]*)\"$")
+    @When("^user provides all the required information and clicks on Save button \"([^\"]*)\"$")
     public void user_provides_all_the_required_information_and_clicks_on_Save_button(String userName) throws Throwable {
         newAccPO.enterAccountInfo(userName);
         throw new PendingException();

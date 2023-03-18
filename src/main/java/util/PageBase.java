@@ -1,12 +1,15 @@
 package util;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.Properties;
 
 public class PageBase {
@@ -25,17 +28,22 @@ public class PageBase {
         }
     }
 
-    public WebDriver initialization() {
+    public void initialization() {
         String browser = prop.getProperty("browser");
         if(browser.equals("chrome")){
             WebDriverManager.chromedriver().setup();
-            WebDriver driver = new ChromeDriver();
-            driver.manage().window().maximize();
+            ChromeOptions chromeOptions = new ChromeOptions();
+            chromeOptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
+            chromeOptions.addArguments("--remote-allow-origins=*");
+            driver = new ChromeDriver(chromeOptions);
             driver.get(prop.getProperty("petUrl"));
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         }
-//        WebDriverManager.chromedriver().setup();
+    }
 
-        return driver;
+    public void tearDown(){
+        driver.quit();
     }
 
 
